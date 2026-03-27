@@ -3,7 +3,7 @@ export function Button({
   label,
   onClick,
 }: {
-  type: 'primary' | 'secondary';
+  type: 'primary' | 'secondary' | 'logout';
   label: string;
   onClick?: () => void | undefined;
 }) {
@@ -18,7 +18,19 @@ export function Button({
     );
   else if (type === 'secondary')
     return (
-      <button className="bg-surface border border-border px-8 py-4 rounded-xl text-lg text-md hover:bg-primary/20 duration-150 cursor-pointer">
+      <button
+        onClick={onClick}
+        className="bg-surface border border-border px-8 py-4 rounded-xl text-lg text-md hover:bg-primary/20 duration-150 cursor-pointer"
+      >
+        {label}
+      </button>
+    );
+  else if (type === 'logout')
+    return (
+      <button
+        onClick={onClick}
+        className="bg-background rounded-xl text-xs px-4 py-2  duration-150 cursor-pointer w-full"
+      >
         {label}
       </button>
     );
