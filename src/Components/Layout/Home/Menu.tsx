@@ -10,7 +10,7 @@ export function Menu() {
       {MenuList.map((el, i) => (
         <li
           key={i}
-          className="text-lg hover:text-secondary duration-150 cursor-pointer hover:border-t hover:border-secondary rounded-xl px-4 py-2"
+          className="text-lg  duration-150 cursor-pointer hover:border-t hover:border-secondary rounded-xl px-4 py-2"
         >
           {el.title}
         </li>

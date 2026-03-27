@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Menu } from './Menu';
 import { Button } from '@/Components/ui/Button';
 import { Logo } from '@/Components/shared/Logo';
-import { SignUpMethod } from '../LoginForm';
+import { LoginForm } from '../auth/SignUp';
 
 export function Header() {
   const [openModal, setOpenModal] = useState(false);
@@ -24,24 +24,5 @@ export function Header() {
         onClick={() => setOpenModal(true)}
       />
     </header>
-  );
-}
-
-function LoginForm() {
-  return (
-    <div className="flex flex-col  justify-center h-full gap-10 w-full">
-      <div className="m-auto">
-        <Logo />
-      </div>
-      <div className="text-center space-y-3">
-        <h2 className="text-2xl font-semibold">Velora Welcome You !</h2>
-        <span className="text-sm ">Sign Up from here</span>
-      </div>
-      <div className="space-y-4">
-        <SignUpMethod method="google" link="" />
-        <SignUpMethod method="github" link="" />
-        <SignUpMethod method="discord" link="" />
-      </div>
-    </div>
   );
 }

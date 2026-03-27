@@ -17,9 +17,10 @@ export function SignUpMethod({
     ) : (
       <FaDiscord className={style} />
     );
+    const fullUrl = process.env.NEXT_PUBLIC_BACKEND_URL + link
   return (
     <a
-      href={link}
+      href={fullUrl}
       className=" flex items-center bg-background justify-center px-6 py-3 rounded-xl gap-4"
     >
       {Icon} <h3 className="capitalize text-xl">{method}</h3>
