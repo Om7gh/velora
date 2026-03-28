@@ -9,7 +9,7 @@ const styleIcons = "size-5"
 const SideBarMenuList = [
   {
     url: "/dashboard",
-    title: "Dashboard",
+    title: "home",
     icon: <LayoutDashboard className={styleIcons} />
   },
   {
@@ -40,7 +40,7 @@ export default  function SideBarMenu({isMobile} : {isMobile: boolean}) {
     {SideBarMenuList.map((el, i) => (
       <div key={i}>
         {i === SideBarMenuList.length - 1 && <Separator className="my-6" />}
-      <Link  className={`flex items-center gap-4 ${pathname === el.url && "bg-background border-l-4 border-primary"} py-1 px-2 md:py-2 md:px-4 rounded-lg `} href={el.url}>
+      <Link  className={`flex items-center gap-4 ${pathname === el.url && "bg-primary/60"} py-1 px-2 md:py-2 md:px-4 rounded-lg `} href={el.url}>
         {el.icon}
         {!isMobile && <h3 className="capitalize font-semibold text-xs">{el.title}</h3> }
       </Link>
