@@ -3,6 +3,7 @@ import { create } from "zustand";
 type Store = {
   progress: number;
   setProgress: () => void;
+  setPreviousProgress: () => void;
 };
 
 const useStore = create<Store>()((set) => ({
@@ -10,6 +11,10 @@ const useStore = create<Store>()((set) => ({
   setProgress: () =>
     set((state) => ({
       progress: state.progress + 1,
+    })),
+  setPreviousProgress: () =>
+    set((state) => ({
+      progress: state.progress > 0 ? state.progress - 1 : 0,
     })),
 }));
 

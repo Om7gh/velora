@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { CircleX } from 'lucide-react';
-import { ReactNode, useRef } from 'react';
+import { CircleX } from "lucide-react";
+import { ReactNode, useRef } from "react";
+import { createPortal } from "react-dom";
 
 export default function Modal({
   children,
@@ -11,18 +12,19 @@ export default function Modal({
   openModal: () => void;
 }) {
   const modalRef = useRef(null);
-  return (
+  return createPortal(
     <div
-      className="w-screen h-screen absolute top-0 left-0 backdrop-blur-xs"
+      className="w-screen h-screen absolute z-999 top-0 left-0 backdrop-blur-sm"
       ref={modalRef}
     >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-h-96 max-h-full min-w-96 max-w-full bg-surface p-6 rounded-xl shadow-xl">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-150 w-200 bg-background/60 p-6 rounded-xl shadow-xl border-2 border-primary">
         <CircleX
           className="absolute right-2 top-2 text-primary "
           onClick={() => openModal()}
         />
         {children}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
